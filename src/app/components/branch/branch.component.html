@@ -1,0 +1,32 @@
+<div class="card">
+  <img src="../assets/bt-logo.png" alt="" class="card__img" />
+  <div class="card__header">
+    <h1 class="card__header__name">{{ branch.name }}</h1>
+    <h4 class="card__header__code">Code: {{ branch.bc }}</h4>
+  </div>
+  <div class="card__status">
+    <div class="card__status__tt">
+      <img class="card__status__tt__img" src="../assets/tt-logo.png" alt="" />
+      <h3 class="card__status__tt__address">
+        {{ branch.ttIpAddress }}
+      </h3>
+      <div class="card__status__tt__status"></div>
+    </div>
+    <div class="card__status__orange">
+      <img
+        class="card__status__orange__img"
+        src="../assets/orange-logo.png"
+        alt=""
+      />
+      <h3 class="card__status__orange__address">
+        {{ branch.orangeIpAddress }}
+      </h3>
+      <div class="card__status__orange__status"></div>
+    </div>
+  </div>
+</div>
+
+<!-- {{ branch.name }}
+{{ branch.bc }}
+{{ branch.ttIpAddress }}
+{{ branch.orangeIpAddress }} -->
