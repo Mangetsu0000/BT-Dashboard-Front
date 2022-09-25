@@ -7,7 +7,9 @@
 .card {
   background-color: #5662f6;
   border: 2px dotted red;
-  width: 15%;
+  flex: 1;
+  min-width: 250px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,6 +18,7 @@
   color: aliceblue;
   border-radius: 8px;
   padding: 10px;
+  margin-bottom: 15px;
 }
 .card__img {
   margin: 0 auto;
@@ -30,11 +33,12 @@
   text-transform: capitalize;
 }
 .card__header__name {
-  font-size: 22px;
+  flex: 1;
+  font-size: 17px;
   color: #044387;
 }
 .card__header__code {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .card__status__orange,
