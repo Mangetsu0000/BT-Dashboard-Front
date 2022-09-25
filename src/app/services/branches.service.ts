@@ -12,4 +12,3 @@ export class BranchesService {
     return this.http.get<Branch[]>(`${apiUrl}/branches/all`);
   }
 }
-// return this.http.get<Branch[]>(`${apiUrl}/branches/all`);
