@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { window } from 'rxjs';
 import { Branch } from 'src/app/models/branch';
+import { PingService } from 'src/app/services/ping.service';
 
 @Component({
   selector: 'app-branch',
@@ -8,7 +10,20 @@ import { Branch } from 'src/app/models/branch';
 })
 export class BranchComponent implements OnInit {
   @Input() branch!: Branch;
-  constructor() {}
 
-  ngOnInit(): void {}
+  testIp: string = '192.168.43.73';
+  orangeConnected!: boolean;
+  ttConnected!: boolean;
+  constructor(private ping: PingService) {}
+
+  ngOnInit(): void {
+    setInterval(() => {
+      this.ping.pingBranch(this.branch.orangeIpAddress).subscribe((res) => {
+        this.orangeConnected = res;
+      });
+      this.ping.pingBranch(this.branch.ttIpAddress).subscribe((res) => {
+        this.ttConnected = res;
+      });
+    }, 2000);
+  }
 }
