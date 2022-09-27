@@ -26,7 +26,7 @@
 
 .card__header {
   margin: 0 auto;
-  width: 80%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,7 +40,9 @@
 .card__header__code {
   font-size: 14px;
 }
-
+.card__status {
+  width: 100%;
+}
 .card__status__orange,
 .card__status__tt {
   margin: 0 auto;
@@ -50,22 +52,33 @@
   margin-bottom: 7px;
 }
 .card__status__orange__img {
-  margin-left: 5px;
+  padding-left: 4px;
+  display: flex;
+  justify-content: center;
 }
+
 .card__status__orange {
   margin-left: 7.5px;
 }
 .card__status__orange__address {
-  margin-left: 15.5px;
+  margin-left: 12.5px;
 }
 .card__status__orange__status,
 .card__status__tt__status {
-  margin-left: 30px;
+  margin-left: 20px;
   width: 10px;
   height: 10px;
   background-color: #c3c3c3;
   border-radius: 50%;
 }
 .card__status__orange__status {
-  margin-left: 27px;
+  margin-left: 21px;
+}
+
+.alive {
+  background-color: green;
+}
+
+.dead {
+  background-color: red;
 }

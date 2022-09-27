@@ -10,18 +10,23 @@
       <h3 class="card__status__tt__address">
         {{ branch.ttIpAddress }}
       </h3>
-      <div class="card__status__tt__status"></div>
+      <div
+        class="card__status__tt__status"
+        [ngClass]="ttConnected ? 'alive' : 'dead'"
+      ></div>
     </div>
     <div class="card__status__orange">
-      <img
-        class="card__status__orange__img"
-        src="../assets/orange-logo.png"
-        alt=""
-      />
+      <div class="card__status__orange__img">
+        <img src="../assets/orange-logo.png" alt="" />
+      </div>
+
       <h3 class="card__status__orange__address">
         {{ branch.orangeIpAddress }}
       </h3>
-      <div class="card__status__orange__status"></div>
+      <div
+        class="card__status__orange__status"
+        [ngClass]="orangeConnected ? 'alive' : 'dead'"
+      ></div>
     </div>
   </div>
 </div>
