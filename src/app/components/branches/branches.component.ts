@@ -8,22 +8,28 @@ import { BranchesService } from 'src/app/services/branches.service';
   styleUrls: ['./branches.component.css'],
 })
 export class BranchesComponent implements OnInit {
-  searchTerm!: string;
+  searchTerm!: any;
   branches: Branch[] = [];
   constructor(private branchesService: BranchesService) {}
 
   ngOnInit(): void {
     this.branchesService.getBranches().subscribe((data) => {
       this.branches = data;
+      console.log(data);
     });
   }
   search() {
-    this.branchesService.getBranches().subscribe((data) => {
-      this.branches = data.filter((branch) => {
-        return branch.name
-          .toLowerCase()
-          .includes(this.searchTerm.trim().toLowerCase());
+    if (this.searchTerm) {
+      this.branchesService.getBranches().subscribe((data) => {
+        this.branches = data.filter((branch) => {
+          return branch.bc == this.searchTerm;
+        });
       });
-    });
+    } else {
+      this.branchesService.getBranches().subscribe((data) => {
+        this.branches = data;
+        console.log(data);
+      });
+    }
   }
 }
