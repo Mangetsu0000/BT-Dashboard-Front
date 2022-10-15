@@ -1,0 +1,82 @@
+<main>
+  <form [formGroup]="form" (ngSubmit)="submit()" autocomplete="on">
+    <h1 class="h3 mb-3 fw-normal">Signup</h1>
+
+    <div class="form-control">
+      <label for="firstName">First Name</label>
+      <input
+        formControlName="firstName"
+        type="text"
+        class="form-control"
+        id="firstName"
+        placeholder="First name"
+      />
+      <span
+        *ngIf="
+          form.get('firstName')?.touched &&
+          form.get('firstName')?.hasError('required')
+        "
+      >
+        * First Name is required
+      </span>
+    </div>
+
+    <div class="form-control">
+      <label for="lastName">Last Name</label>
+      <input
+        formControlName="lastName"
+        type="text"
+        class="form-control"
+        id="lastName"
+        placeholder="Last name"
+      />
+      <span
+        *ngIf="
+          form.get('lastName')?.touched &&
+          form.get('lastName')?.hasError('required')
+        "
+      >
+        * Last Name is required
+      </span>
+    </div>
+
+    <div class="form-control">
+      <label for="email">Email address</label>
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="email"
+        placeholder="email"
+      />
+      <span
+        *ngIf="
+          form.get('email')?.touched && form.get('email')?.hasError('required')
+        "
+      >
+        * Email is required
+      </span>
+    </div>
+    <div class="form-control">
+      <label for="password">Password</label>
+      <input
+        formControlName="password"
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password"
+      />
+      <span
+        *ngIf="
+          form.get('password')?.touched &&
+          form.get('password')?.hasError('required')
+        "
+      >
+        * password is required
+      </span>
+    </div>
+
+    <button type="submit" [disabled]="!form.valid">Sign up</button>
+  </form>
+  <p></p>
+</main>
