@@ -1,0 +1,28 @@
+<main>
+  <form [formGroup]="form" (submit)="submit()" autocomplete="on">
+    <h1>Login</h1>
+
+    <div class="form-control">
+      <label for="floatingInput">Email address</label>
+      <input
+        formControlName="email"
+        type="email"
+        class="form-control"
+        id="floatingInput"
+        placeholder="name@example.com"
+      />
+    </div>
+    <div class="form-control">
+      <label for="floatingPassword">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="floatingPassword"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </div>
+
+    <button type="submit">Sign in</button>
+  </form>
+</main>

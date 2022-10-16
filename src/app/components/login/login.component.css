@@ -23,7 +23,7 @@ form {
   font-weight: normal;
 }
 form h1 {
-  color: #063293;
+  color: #c3c3c3;
   font-weight: normal;
 }
 .form-control {
@@ -50,6 +50,5 @@ button {
   background: #063293;
   color: #fff;
   font-size: 1.2rem;
-
   cursor: pointer;
 }
