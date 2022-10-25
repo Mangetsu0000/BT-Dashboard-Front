@@ -6,7 +6,7 @@
 
 .card {
   background-color: #5662f6;
-  border: 2px dotted red;
+  border: 2px dotted #c3c3c3;
   flex: 1;
   min-width: 250px;
   min-height: 300px;
@@ -17,15 +17,16 @@
   gap: 10px;
   color: aliceblue;
   border-radius: 8px;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   margin-bottom: 15px;
+  z-index: 3;
 }
 .card__img {
   margin: 0 auto;
 }
 
 .card__header {
-  margin: 0 auto;
+  margin: 5px auto;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -39,7 +40,9 @@
 }
 .card__header__code {
   font-size: 14px;
+  color: #000;
 }
+
 .card__status {
   width: 100%;
 }
@@ -73,12 +76,13 @@
 }
 .card__status__orange__status {
   margin-left: 21px;
+  background-color: #f5f5f5;
 }
 
 .alive {
-  background-color: green;
+  background-color: #37e268;
 }
 
 .dead {
-  background-color: red;
+  background-color: #fa1b49;
 }

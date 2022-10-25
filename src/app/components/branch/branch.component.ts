@@ -11,7 +11,7 @@ import { PingService } from 'src/app/services/ping.service';
 export class BranchComponent implements OnInit {
   @Input() branch!: Branch;
 
-  testIp: string = '192.168.43.73';
+  testIp: string = '192.168.1.16';
   orangeConnected!: boolean;
   ttConnected!: boolean;
   constructor(private ping: PingService) {}
@@ -24,6 +24,6 @@ export class BranchComponent implements OnInit {
       this.ping.pingBranch(this.branch.ttIpAddress).subscribe((res) => {
         this.ttConnected = res;
       });
-    }, 2000);
+    }, 1000);
   }
 }
