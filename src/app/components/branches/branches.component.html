@@ -1,6 +1,11 @@
 <app-navbar></app-navbar>
-<p *ngIf="branches.length == 0">No Data to display...</p>
+<app-create-form
+  *ngIf="creating"
+  (formSubmitEvent)="onFormSubmit()"
+></app-create-form>
+<p *ngIf="branches.length == 0">Fetching Data...</p>
 <div class="input">
+  <button (click)="onToggleCreate()">+ Branch</button>
   <input
     type="text"
     [(ngModel)]="searchTerm"
@@ -8,7 +13,6 @@
     placeholder="Search for a branch"
   />
 </div>
-
 <div class="branch-container">
-  <app-branch *ngFor="let branch of branches" [branch]="branch"></app-branch>
+  <!-- <app-branch *ngFor="let branch of branches" [branch]="branch"></app-branch> -->
 </div>
