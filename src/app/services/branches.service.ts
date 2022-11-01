@@ -11,4 +11,8 @@ export class BranchesService {
   getBranches() {
     return this.http.get<Branch[]>(`${apiUrl}/branches/all`);
   }
+  createBranch(userId: number, branch: any) {
+    console.log(branch, userId);
+    this.http.post<any>(`${apiUrl}/branches/create`, userId, branch);
+  }
 }

@@ -10,6 +10,7 @@ import { BranchesService } from 'src/app/services/branches.service';
 export class BranchesComponent implements OnInit {
   searchTerm!: any;
   branches: Branch[] = [];
+  creating: boolean = false;
   constructor(private branchesService: BranchesService) {}
 
   ngOnInit(): void {
@@ -31,5 +32,11 @@ export class BranchesComponent implements OnInit {
         console.log(data);
       });
     }
+  }
+  onToggleCreate() {
+    this.creating = !this.creating;
+  }
+  onFormSubmit() {
+    this.creating = false;
   }
 }
