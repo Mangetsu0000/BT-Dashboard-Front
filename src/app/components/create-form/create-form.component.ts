@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BranchesService } from 'src/app/services/branches.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { BranchToEdit } from 'src/app/models/branch-to-edit';
 @Component({
   selector: 'app-create-form',
   templateUrl: './create-form.component.html',
@@ -9,11 +10,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateFormComponent implements OnInit {
   form!: FormGroup;
   userId: number = 1;
+  @Input() buttonText!: string;
+  @Input() branchToEdit!: BranchToEdit;
   @Output() formSubmitEvent = new EventEmitter<boolean>();
-  constructor(
-    private formBuilder: FormBuilder,
-    private branchesService: BranchesService
-  ) {}
+  @Output() formCancelEvent = new EventEmitter<boolean>();
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
@@ -23,8 +24,10 @@ export class CreateFormComponent implements OnInit {
       orangeIpAddress: ['', Validators.required],
     });
   }
-  submit(): void {
-    this.branchesService.createBranch(this.userId, this.form.getRawValue());
-    this.formSubmitEvent.emit();
+  submit() {
+    this.formSubmitEvent.emit(this.form.getRawValue());
+  }
+  onCancel() {
+    this.formCancelEvent.emit(false);
   }
 }

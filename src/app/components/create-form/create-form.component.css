@@ -52,3 +52,12 @@ button {
 
   cursor: pointer;
 }
+.cancel {
+  position: relative;
+  top: 1rem;
+  left: 85%;
+  width: 15%;
+  font-size: 0.8rem;
+  background: #ef0c0c;
+  color: #fff;
+}

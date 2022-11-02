@@ -86,3 +86,15 @@
 .dead {
   background-color: #fa1b49;
 }
+.cta {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fa-trash {
+  color: rgb(212, 12, 12);
+}
+.fa-pen-to-square {
+  color: black;
+}

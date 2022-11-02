@@ -1,7 +1,10 @@
 <app-navbar></app-navbar>
 <app-create-form
-  *ngIf="creating"
-  (formSubmitEvent)="onFormSubmit()"
+  *ngIf="creating || editing"
+  (formSubmitEvent)="onFormSubmit($event)"
+  (formCancelEvent)="onFormCancel($event)"
+  [branchToEdit]="branchToEdit"
+  [buttonText]="buttonText"
 ></app-create-form>
 <p *ngIf="branches.length == 0">Fetching Data...</p>
 <div class="input">
@@ -14,5 +17,10 @@
   />
 </div>
 <div class="branch-container">
-  <!-- <app-branch *ngFor="let branch of branches" [branch]="branch"></app-branch> -->
+  <app-branch
+    *ngFor="let branch of branches"
+    [branch]="branch"
+    (branchDeleteEvent)="onDelete($event)"
+    (editBranchEvent)="onEdit($event)"
+  ></app-branch>
 </div>

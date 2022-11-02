@@ -9,10 +9,19 @@ import { Branch } from '../models/branch';
 export class BranchesService {
   constructor(private http: HttpClient) {}
   getBranches() {
+    console.log('get branches works');
     return this.http.get<Branch[]>(`${apiUrl}/branches/all`);
   }
-  createBranch(userId: number, branch: any) {
-    console.log(branch, userId);
-    this.http.post<any>(`${apiUrl}/branches/create`, userId, branch);
+  createBranch(branch: any) {
+    console.log(branch);
+    return this.http.post<any>(`${apiUrl}/branches/create`, branch);
+  }
+  deleteBranch(id: number) {
+    console.log('id of branch to delete : ' + id);
+    return this.http.delete(`${apiUrl}/branches/delete/${id}`);
+  }
+  editBranch(branchId: number, branch: any) {
+    console.log(branchId, branch);
+    return this.http.patch(`${apiUrl}/branches/update/${branchId}`, branch);
   }
 }
