@@ -1,8 +1,9 @@
 <main>
   <form [formGroup]="form" (ngSubmit)="submit()" autocomplete="on">
-    <h1>Create Branch</h1>
+    <h1>{{ buttonText }}</h1>
 
     <div class="form-control">
+      <button class="cancel" (click)="onCancel()">Cancel</button>
       <label for="name">Branch Name</label>
       <input
         formControlName="name"
@@ -10,6 +11,7 @@
         class="form-control"
         id="name"
         placeholder="Branch name"
+        [(ngModel)]="branchToEdit.name"
       />
       <span
         *ngIf="
@@ -28,6 +30,7 @@
         class="form-control"
         id="bc"
         placeholder="Branch Code"
+        [(ngModel)]="branchToEdit.bc"
       />
       <span
         *ngIf="form.get('bc')?.touched && form.get('bc')?.hasError('required')"
@@ -44,6 +47,7 @@
         class="form-control"
         id="ttIpAddress"
         placeholder="ttIpAddress"
+        [(ngModel)]="branchToEdit.ttIpAddress"
       />
       <span
         *ngIf="
@@ -62,6 +66,7 @@
         class="form-control"
         id="orangeIpAddress"
         placeholder="orangeIpAddress"
+        [(ngModel)]="branchToEdit.orangeIpAddress"
       />
       <span
         *ngIf="
@@ -72,8 +77,7 @@
         * orangeIpAddress is required
       </span>
     </div>
-
-    <button type="submit" [disabled]="!form.valid">Create</button>
-    {{ form.value | json }}
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+    <!-- {{ form.value | json }} -->
   </form>
 </main>

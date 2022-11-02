@@ -1,4 +1,8 @@
 <div class="card">
+  <div class="cta">
+    <i class="fa-regular fa-pen-to-square" (click)="onEdit()"></i>
+    <i class="fa-solid fa-trash" (click)="onDelete()"></i>
+  </div>
   <img src="../assets/bt-logo.png" alt="" class="card__img" />
   <div class="card__header">
     <h1 class="card__header__name">{{ branch.name }}</h1>
