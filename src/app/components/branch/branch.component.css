@@ -94,7 +94,9 @@
 }
 .fa-trash {
   color: rgb(212, 12, 12);
+  cursor: pointer;
 }
 .fa-pen-to-square {
   color: black;
+  cursor: pointer;
 }

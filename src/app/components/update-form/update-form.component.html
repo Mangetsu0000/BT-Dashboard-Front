@@ -1,1 +1,83 @@
-<p>update-form works!</p>
+<main>
+  <form [formGroup]="form" (ngSubmit)="submit()" autocomplete="on">
+    <h1>Update</h1>
+
+    <div class="form-control">
+      <button class="cancel" (click)="onCancel()">Cancel</button>
+      <label for="name">Branch Name</label>
+      <input
+        formControlName="name"
+        type="text"
+        class="form-control"
+        id="name"
+        placeholder="Branch name"
+        [ngModel]="branchToEdit.name"
+      />
+      <span
+        *ngIf="
+          form.get('name')?.touched && form.get('name')?.hasError('required')
+        "
+      >
+        * Branch Name is required
+      </span>
+    </div>
+
+    <div class="form-control">
+      <label for="bc">Branch Code</label>
+      <input
+        formControlName="bc"
+        type="text"
+        class="form-control"
+        id="bc"
+        placeholder="Branch Code"
+        [ngModel]="branchToEdit.bc"
+      />
+      <span
+        *ngIf="form.get('bc')?.touched && form.get('bc')?.hasError('required')"
+      >
+        * Branch Code is required
+      </span>
+    </div>
+
+    <div class="form-control">
+      <label for="ttIpAddress">ttIpAddress address</label>
+      <input
+        formControlName="ttIpAddress"
+        type="ttIpAddress"
+        class="form-control"
+        id="ttIpAddress"
+        placeholder="ttIpAddress"
+        [ngModel]="branchToEdit.ttIpAddress"
+      />
+      <span
+        *ngIf="
+          form.get('ttIpAddress')?.touched &&
+          form.get('ttIpAddress')?.hasError('required')
+        "
+      >
+        * ttIpAddress is required
+      </span>
+    </div>
+    <div class="form-control">
+      <label for="orangeIpAddress">orangeIpAddress</label>
+      <input
+        formControlName="orangeIpAddress"
+        type="orangeIpAddress"
+        class="form-control"
+        id="orangeIpAddress"
+        placeholder="orangeIpAddress"
+        [ngModel]="branchToEdit.orangeIpAddress"
+      />
+      <span
+        *ngIf="
+          form.get('orangeIpAddress')?.touched &&
+          form.get('orangeIpAddress')?.hasError('required')
+        "
+      >
+        * orangeIpAddress is required
+      </span>
+    </div>
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+    <!-- {{ form.value | json }} -->
+  </form>
+</main>

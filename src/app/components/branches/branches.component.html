@@ -1,10 +1,14 @@
 <app-navbar></app-navbar>
-<app-create-form
-  *ngIf="creating || editing"
+<app-update-form
+  *ngIf="editing"
   (formSubmitEvent)="onFormSubmit($event)"
   (formCancelEvent)="onFormCancel($event)"
-  [branchToEdit]="branchToEdit"
-  [buttonText]="buttonText"
+  [branchToEdit]="branchToEdit!"
+></app-update-form>
+<app-create-form
+  *ngIf="creating"
+  (formSubmitEvent)="onFormSubmit($event)"
+  (formCancelEvent)="onFormCancel($event)"
 ></app-create-form>
 <p *ngIf="branches.length == 0">Fetching Data...</p>
 <div class="input">
