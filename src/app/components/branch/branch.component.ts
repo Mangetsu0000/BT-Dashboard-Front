@@ -24,14 +24,14 @@ export class BranchComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // setInterval(() => {
-    //   this.ping.pingBranch(this.branch.orangeIpAddress).subscribe((res) => {
-    //     this.orangeConnected = res;
-    //   });
-    //   this.ping.pingBranch(this.branch.ttIpAddress).subscribe((res) => {
-    //     this.ttConnected = res;
-    //   });
-    // }, 1000);
+    setInterval(() => {
+      this.ping.pingBranch(this.branch.orangeIpAddress).subscribe((res) => {
+        this.orangeConnected = res;
+      });
+      this.ping.pingBranch(this.branch.ttIpAddress).subscribe((res) => {
+        this.ttConnected = res;
+      });
+    }, 1000);
   }
   onDelete() {
     this.branchDeleteEvent.emit(this.branch.id);

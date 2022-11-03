@@ -14,7 +14,6 @@ export class BranchesComponent implements OnInit {
   creating: boolean = false;
   editing: boolean = false;
   branchToEdit!: BranchToEdit;
-  buttonText!: string;
   constructor(private branchesService: BranchesService) {}
 
   ngOnInit(): void {
@@ -37,28 +36,27 @@ export class BranchesComponent implements OnInit {
   getData() {
     this.branchesService.getBranches().subscribe((data) => {
       this.branches = data;
+      this.branches.sort((a, b) => {
+        return a.bc - b.bc;
+      });
       return data;
     });
   }
   onToggleCreate() {
-    this.buttonText = 'Create';
-    this.creating = !this.creating;
+    this.creating = true;
   }
   onFormSubmit(form: any) {
     if (this.creating) {
-      this.branchesService.createBranch(form).subscribe((res) => {
-        this.branches.push(res);
+      this.branchesService.createBranch(form).subscribe(() => {
+        this.getData();
         this.creating = false;
       });
     } else if (this.editing) {
-      this.buttonText = 'Edit';
       this.branchesService
         .editBranch(this.branchToEdit.id!, form)
         .subscribe(() => {
-          this.branchesService.getBranches().subscribe(() => {
-            this.branches.sort((a, b) => a.id! - b.id!);
-            this.editing = false;
-          });
+          this.getData();
+          this.editing = false;
         });
     }
   }
@@ -68,10 +66,9 @@ export class BranchesComponent implements OnInit {
     });
   }
   onEdit(branch: BranchToEdit) {
-    this.branchToEdit = branch;
-    console.log(this.branchToEdit.name);
     this.editing = true;
-    this.buttonText = 'Update';
+    this.branchToEdit = branch;
+    console.log(this.branchToEdit!.name!);
   }
   onFormCancel(status: boolean) {
     this.creating = status;

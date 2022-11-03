@@ -9,9 +9,6 @@ import { BranchToEdit } from 'src/app/models/branch-to-edit';
 })
 export class CreateFormComponent implements OnInit {
   form!: FormGroup;
-  userId: number = 1;
-  @Input() buttonText!: string;
-  @Input() branchToEdit!: BranchToEdit;
   @Output() formSubmitEvent = new EventEmitter<boolean>();
   @Output() formCancelEvent = new EventEmitter<boolean>();
   constructor(private formBuilder: FormBuilder) {}
