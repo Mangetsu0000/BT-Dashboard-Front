@@ -28,10 +28,12 @@ export class BranchComponent implements OnInit {
       this.ping.pingBranch(this.branch.orangeIpAddress).subscribe((res) => {
         this.orangeConnected = res;
       });
+    }, 10000);
+    setInterval(() => {
       this.ping.pingBranch(this.branch.ttIpAddress).subscribe((res) => {
-        this.ttConnected = res;
+        this.orangeConnected = res;
       });
-    }, 1000);
+    }, 10000);
   }
   onDelete() {
     this.branchDeleteEvent.emit(this.branch.id);
